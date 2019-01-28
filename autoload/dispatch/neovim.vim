@@ -23,7 +23,7 @@ function! s:CommandOptions(request) abort
 				\ 'background': a:request.background,
 				\ 'request': a:request,
 				\}
-	let terminal_opts = { 'pty': 1, 'width': 80, 'height': 25 }
+	let terminal_opts = { 'pty': 1, 'width': 80, 'height': 30 }
 
 	if s:UsesTerminal(a:request)
 		call extend(opts, terminal_opts)
