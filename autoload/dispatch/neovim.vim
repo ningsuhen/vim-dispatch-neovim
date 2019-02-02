@@ -61,7 +61,7 @@ function! dispatch#neovim#handle(request) abort
 	let opts = s:CommandOptions(a:request)
 	if s:UsesTerminal(a:request)
 		if s:NeedsOutput(a:request)
-			execute 'botright split | enew | resize 15'
+			execute 'botright split | enew | resize 20'
 			let opts.buf_id = bufnr('%')
 			call termopen(cmd, opts)
 			call s:SaveCurrentBufferPid(a:request)
