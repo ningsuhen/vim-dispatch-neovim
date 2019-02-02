@@ -23,7 +23,7 @@ function! s:CommandOptions(request) abort
 				\ 'background': a:request.background,
 				\ 'request': a:request,
 				\}
-	let terminal_opts = { 'pty': 1, 'width': 80, 'height': 25 }
+	let terminal_opts = { 'pty': 1, 'width': 80, 'height': 20 }
 
 	if s:UsesTerminal(a:request)
 		call extend(opts, terminal_opts)
@@ -61,7 +61,7 @@ function! dispatch#neovim#handle(request) abort
 	let opts = s:CommandOptions(a:request)
 	if s:UsesTerminal(a:request)
 		if s:NeedsOutput(a:request)
-			execute 'botright split | enew | resize 25'
+			execute 'botright split | enew | resize 20'
 			let opts.buf_id = bufnr('%')
 			call termopen(cmd, opts)
 			call s:SaveCurrentBufferPid(a:request)
